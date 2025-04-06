@@ -1,0 +1,17 @@
+/* Additional custom styles */
+.focus\:ring-2:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.3);
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom file input styling */
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+

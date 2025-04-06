@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - FoodShare</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#008080', // green-600
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="min-h-screen bg-gray-50">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white shadow-md">
+    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center">
+        <img src="/Pictures/Icon/portrait-someona-is-sharing-sodaqoh-food-each-other-ramadan-illustration_869472-637.avif" alt="FoodShare Logo" class="mr-2 h-[40px] w-[40px]">
+        <span class="text-xl font-bold text-primary">FoodShare</span>
+      </div>
+      
+      <nav class="hidden md:flex items-center space-x-8">
+        <a href="index.html" class="text-gray-700 hover:text-primary font-medium">Home</a>
+        <a href="about-us.html" class="text-gray-700 hover:text-primary font-medium">About Us</a>
+        <!-- <a href="gallery.html" class="text-primary font-medium">Gallery</a> -->
+        <a href="contact.html" class="text-gray-700 hover:text-primary font-medium">Contact</a>
+        <a href="upload.html" class="text-gray-700 hover:text-primary font-medium">Upload</a>
+      </nav>
+      
+      <a href="donate.html" class="bg-primary hover:bg-green-700 text-white px-4 py-2 rounded-md">
+        Donate
+      </a>
+      
+      <button id="mobileMenuButton" class="md:hidden text-gray-700" aria-label="Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" x2="20" y1="12" y2="12"></line>
+          <line x1="4" x2="20" y1="6" y2="6"></line>
+          <line x1="4" x2="20" y1="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="md:hidden hidden bg-white border-t">
+      <div class="container mx-auto px-4 py-2">
+        <nav class="flex flex-col space-y-3 py-3">
+          <a href="index.html" class="text-gray-700 hover:text-primary font-medium">Home</a>
+          <a href="about-us.html" class="text-gray-700 hover:text-primary font-medium">About Us</a>
+          <a href="gallery.html" class="text-primary font-medium">Gallery</a>
+          <a href="contact.html" class="text-gray-700 hover:text-primary font-medium">Contact</a>
+          <a href="upload.html" class="text-gray-700 hover:text-primary font-medium">Upload</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Banner -->
+  <div class="relative bg-gray-900 text-white py-16">
+    <!-- <div class="absolute inset-0 z-0 opacity-40">
+      <img src="https://via.placeholder.com/1920x400" alt="Gallery Banner" class="w-full h-full object-cover">
+    </div> -->
+    <div class="container mx-auto px-4 relative z-10">
+      <h1 class="text-4xl font-bold mb-2">Gallery</h1>
+      <p class="text-lg">See the impact of your donations and our volunteers' hard work</p>
+    </div>
+  </div>
+
+  <!-- Gallery Filter -->
+  <section class="py-8 bg-white border-b">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap justify-center gap-4">
+        <button class="gallery-filter-btn active px-4 py-2 rounded-md bg-primary text-white" data-filter="all">
+          All
+        </button>
+        <button class="gallery-filter-btn px-4 py-2 rounded-md bg-gray-200 hover:bg-gray-300" data-filter="events">
+          Events
+        </button>
+        <button class="gallery-filter-btn px-4 py-2 rounded-md bg-gray-200 hover:bg-gray-300" data-filter="volunteers">
+          Volunteers
+        </button>
+        <button class="gallery-filter-btn px-4 py-2 rounded-md bg-gray-200 hover:bg-gray-300" data-filter="donations">
+          Donations
+        </button>
+        <button class="gallery-filter-btn px-4 py-2 rounded-md bg-gray-200 hover:bg-gray-300" data-filter="community">
+          Community
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Grid -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="galleryGrid">
+        <!-- Gallery items will be loaded here via JavaScript -->
+        <div class="gallery-item overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300" data-category="events">
+          <div class="relative h-64">
+            <img src="/Pictures/NavGallery/Food donation event .jpg" alt="Food donation event" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-4 bg-white">
+            <h3 class="font-semibold text-lg">Food Donation Drive</h3> 
+            <p class="text-gray-600 text-sm">Annual food collection event at City Park</p>
+          </div>
+        </div>
+
+        <div class="gallery-item overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300" data-category="donations">
+          <div class="relative h-64">
+            <img src="/Pictures/NavGallery/food prepration.jpg" alt="Food preparation" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-4 bg-white">
+            <h3 class="font-semibold text-lg">Food Preparation</h3>
+            <p class="text-gray-600 text-sm">Preparing donated food for distribution</p>
+          </div>
+        </div>
+        
+        <div class="gallery-item overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300" data-category="donations">
+          <div class="relative h-64">
+              <img src="/Pictures/NavGallery/food donate.jpg" alt="Food collection" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-4 bg-white">
+            <h3 class="font-semibold text-lg">Restaurant Donations</h3>
+            <p class="text-gray-600 text-sm">Collecting surplus food from local restaurants</p>
+          </div>
+        </div>
+        
+        <div class="gallery-item overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300" data-category="community">
+          <div class="relative h-64">
+            <img src="/Pictures/NavGallery/happy food .jpg" alt="Happy recipients" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-4 bg-white">
+            <h3 class="font-semibold text-lg">Community Impact</h3>
+            <p class="text-gray-600 text-sm">Families receiving food packages</p>
+          </div>
+        </div>
+
+        <div class="gallery-item overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300" data-category="community">
+          <div class="relative h-64">
+            <img src="/Pictures/NavGallery/bal-shiksha-gallery-3.jpg" alt="School program" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-4 bg-white">
+            <h3 class="font-semibold text-lg">School Program</h3>
+            <p class="text-gray-600 text-sm">Educational program at local schools</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-14 bg-primary text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-6">Be Part of Our Story</h2>
+      <p class="text-lg mb-8 max-w-3xl mx-auto">
+        Join us in our mission to reduce food waste and feed those in need. Your contribution can make a difference.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="donate.html" class="bg-white text-primary hover:bg-gray-100 px-6 py-3 rounded-md font-medium">
+          Donate Now
+        </a>
+        <a href="volunteer.html" class="bg-transparent border border-white text-white hover:bg-white hover:text-primary px-6 py-3 rounded-md font-medium">
+          Become a Volunteer
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">FoodShare</h3>
+          <p class="text-gray-300">
+            Helping to reduce food waste and feed those in need.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-gray-300 hover:text-white">Home</a></li>
+            <li><a href="about-us.html" class="text-gray-300 hover:text-white">About Us</a></li>
+            <li><a href="gallery.html" class="text-gray-300 hover:text-white">Gallery</a></li>
+            <li><a href="contact.html" class="text-gray-300 hover:text-white">Contact</a></li>
+            <li><a href="admin-login.html" class="text-gray-300 hover:text-white">Admin</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+          <address class="not-italic text-gray-300">
+            <p>A 7/19, Sector C, Ujjain</p>
+            <p>Ujjain, Madhya Pradesh</p>
+            <p>Email: info@foodshare.org</p>
+            <p>Phone: +91 9875437621</p>
+          </address>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+        <p>&copy; <span id="currentYear"></span> FoodShare. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/public/js/main.js"></script>
+  <script src="/public/js/gallery.js"></script>
+</body>
+</html>
+

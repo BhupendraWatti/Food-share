@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You - FoodShare</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#008080', // green-600
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+  <div class="max-w-md w-full text-center bg-white rounded-lg shadow-lg p-8">
+    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+      </svg>
+    </div>
+    
+    <h1 class="text-3xl font-bold text-gray-900 mb-4">Thank You!</h1>
+    <p class="text-gray-600 mb-8">
+      Your donation has been received. Your generosity will help feed those in need.
+      We'll contact you shortly with more details.
+    </p>
+    
+    <div class="space-y-4">
+      <a href="index.html" class="block w-full bg-primary hover:bg-green-700 text-white px-4 py-2 rounded-md text-center">
+        Return to Home
+      </a>
+      
+      <a href="donate.html" class="block w-full border border-primary text-primary hover:bg-green-50 px-4 py-2 rounded-md text-center">
+        Make Another Donation
+      </a>
+    </div>
+  </div>
+
+  <script src="/public/js/thank-you.js"></script>
+</body>
+</html>
+

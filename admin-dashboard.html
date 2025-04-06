@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - FoodShare</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#008080',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="min-h-screen bg-gray-50">
+  <header class="bg-white shadow">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-primary">FoodShare Admin</h1>
+      <div class="flex items-center space-x-4">
+        <a href="index.html" class="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50">View Website</a>
+        <button id="logoutBtn" class="text-gray-600 hover:text-gray-900">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-xl font-semibold mb-1">Total Donations</h2>
+        <p class="text-sm text-gray-500 mb-2">Number of donations received</p>
+        <p id="totalDonations" class="text-4xl font-bold text-primary">0</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-xl font-semibold mb-1">Total Amount</h2>
+        <p class="text-sm text-gray-500 mb-2">Total donation amount</p>
+        <p id="totalAmount" class="text-4xl font-bold text-primary">₹0</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-xl font-semibold mb-1">Volunteers</h2>
+        <p class="text-sm text-gray-500 mb-2">Total registered volunteers</p>
+        <p id="totalVolunteers" class="text-4xl font-bold text-primary">0</p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+      <div class="border-b">
+        <div class="flex flex-wrap">
+          <button id="donationsTabBtn" class="px-4 py-3 font-medium border-b-2 border-primary text-primary">Donations</button>
+          <button id="volunteersTabBtn" class="px-4 py-3 font-medium text-gray-500 hover:text-gray-700">Volunteers</button>
+          <button id="contactTabBtn" class="px-4 py-3 font-medium text-gray-500 hover:text-gray-700">Contact</button>
+          <button id="needyTabBtn" class="px-4 py-3 font-medium text-gray-500 hover:text-gray-700">Needy People</button>
+          <button id="faqTabBtn" class="px-4 py-3 font-medium text-gray-500 hover:text-gray-700">FAQs</button>
+        </div>
+      </div>
+
+      <div id="donationsTab" class="p-6">
+        <!-- Donations content -->
+        <h2 class="text-xl font-bold mb-4">Recent Donations</h2>
+        <table class="w-full border-collapse">
+          <thead>
+            <tr class="bg-gray-100">
+              <th class="px-4 py-2 text-left">Name</th>
+              <th class="px-4 py-2 text-left">Email</th>
+              <th class="px-4 py-2 text-left">Phone</th>
+              <th class="px-4 py-2 text-left">Amount</th>
+              <th class="px-4 py-2 text-left">Donor Type</th>
+              <th class="px-4 py-2 text-left">Date</th>
+            </tr>
+          </thead>
+          <tbody id="donationsTableBody">
+            <tr><td colspan="6" class="px-4 py-3 text-center text-gray-500">No donations found</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="volunteersTab" class="p-6 hidden">
+        <!-- Volunteers content -->
+        <h2 class="text-xl font-bold mb-4">Volunteers</h2>
+        <table class="w-full border-collapse">
+          <thead>
+            <tr class="bg-gray-100">
+              <th class="px-4 py-2 text-left">Name</th>
+              <th class="px-4 py-2 text-left">Email</th>
+              <th class="px-4 py-2 text-left">Phone</th>
+              <th class="px-4 py-2 text-left">Area</th>
+              <th class="px-4 py-2 text-left">Date</th>
+            </tr>
+          </thead>
+          <tbody id="volunteersTableBody">
+            <tr><td colspan="5" class="px-4 py-3 text-center text-gray-500">No volunteers found</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="contactTab" class="p-6 hidden">
+        <!-- Contact content -->
+        <h2 class="text-xl font-bold mb-4">Contact Messages</h2>
+        <table class="w-full border-collapse">
+          <thead>
+            <tr class="bg-gray-100">
+              <th class="px-4 py-2 text-left">Name</th>
+              <th class="px-4 py-2 text-left">Email</th>
+              <th class="px-4 py-2 text-left">Message</th>
+              <th class="px-4 py-2 text-left">Date</th>
+            </tr>
+          </thead>
+          <tbody id="contactTableBody">
+            <tr><td colspan="4" class="px-4 py-3 text-center text-gray-500">No contact messages</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="needyTab" class="p-6 hidden">
+        <!-- Needy content -->
+        <h2 class="text-xl font-bold mb-4">Needy People Details</h2>
+        <table class="w-full border-collapse">
+          <thead>
+            <tr class="bg-gray-100">
+              <th class="px-4 py-2 text-left">Name</th>
+              <th class="px-4 py-2 text-left">Location</th>
+              <th class="px-4 py-2 text-left">Needs</th>
+              <th class="px-4 py-2 text-left">Date</th>
+            </tr>
+          </thead>
+          <tbody id="needyTableBody">
+            <tr><td colspan="4" class="px-4 py-3 text-center text-gray-500">No needy records found</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="faqTab" class="p-6 hidden">
+        <h2 class="text-xl font-bold mb-4">User Questions & Admin Replies</h2>
+        <table class="w-full border-collapse">
+          <thead>
+            <tr class="bg-gray-100">
+              <th class="px-4 py-2 text-left">Name</th>
+              <th class="px-4 py-2 text-left">Email</th>
+              <th class="px-4 py-2 text-left">Question</th>
+              <th class="px-4 py-2 text-left">Admin Reply</th>
+              <th class="px-4 py-2 text-left">Action</th>
+            </tr>
+          </thead>
+          <tbody id="faqTableBody">
+            <tr>
+              <td class="px-4 py-2"></td>
+              <td class="px-4 py-2"></td>
+              <td class="px-4 py-2"></td>
+              <td class="px-4 py-2"><input type="text" class="w-full border rounded px-2 py-1 replyInput" placeholder="Type reply..."></td>
+              <td class="px-4 py-2"><button class="sendReplyBtn bg-primary text-white px-3 py-1 rounded">Send</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const tabs = ["donations", "volunteers", "contact", "needy", "faq"];
+    tabs.forEach(tab => {
+      document.getElementById(`${tab}TabBtn`).addEventListener('click', () => {
+        tabs.forEach(t => {
+          document.getElementById(`${t}Tab`).classList.add('hidden');
+          document.getElementById(`${t}TabBtn`).classList.remove('border-b-2', 'border-primary', 'text-primary');
+          document.getElementById(`${t}TabBtn`).classList.add('text-gray-500');
+        });
+        document.getElementById(`${tab}Tab`).classList.remove('hidden');
+        document.getElementById(`${tab}TabBtn`).classList.add('border-b-2', 'border-primary', 'text-primary');
+        document.getElementById(`${tab}TabBtn`).classList.remove('text-gray-500');
+      });
+    });
+   
+
+    
+      document.addEventListener("DOMContentLoaded", () => {
+        const tabs = ["donations", "volunteers", "contact", "needy", "faq"];
+        tabs.forEach(tab => {
+          document.getElementById(`${tab}TabBtn`).addEventListener('click', () => {
+            tabs.forEach(t => {
+              document.getElementById(`${t}Tab`).classList.add('hidden');
+              document.getElementById(`${t}TabBtn`).classList.remove('border-b-2', 'border-primary', 'text-primary');
+              document.getElementById(`${t}TabBtn`).classList.add('text-gray-500');
+            });
+            document.getElementById(`${tab}Tab`).classList.remove('hidden');
+            document.getElementById(`${tab}TabBtn`).classList.add('border-b-2', 'border-primary', 'text-primary');
+            document.getElementById(`${tab}TabBtn`).classList.remove('text-gray-500');
+          });
+        });
+    
+        document.querySelectorAll('.sendReplyBtn').forEach(button => {
+          button.addEventListener('click', function () {
+            const row = this.closest('tr');
+            const input = row.querySelector('.replyInput');
+            const reply = input.value;
+            if (reply.trim()) {
+              input.classList.add("bg-green-50", "border-green-400");
+              this.textContent = "Replied";
+              this.disabled = true;
+              this.classList.add("opacity-70");
+            } else {
+              alert("Please type a reply before sending.");
+            }
+          });
+        });
+      });
+    
+    
+    <!-- Existing JS file -->
+    
+    
+    
+  </script>
+  <script src="js/admin-dashboard.js"></script>
+</body>
+</html>

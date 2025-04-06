@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - FoodShare</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#008080', // green-600
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="min-h-screen bg-gray-50">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white shadow-md">
+    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center">
+        <img src="/Pictures/Icon/portrait-someona-is-sharing-sodaqoh-food-each-other-ramadan-illustration_869472-637.avif" alt="FoodShare Logo" class="mr-2 h-[40px] w-[40px]">
+        <span class="text-xl font-bold text-primary">FoodShare</span>
+      </div>
+      
+      <nav class="hidden md:flex items-center space-x-8">
+        <a href="index.html" class="text-gray-700 hover:text-primary font-medium">Home</a>
+        <a href="about-us.html" class="text-primary font-medium">About Us</a>
+        <!-- <a href="gallery.html" class="text-gray-700 hover:text-primary font-medium">Gallery</a> -->
+        <a href="contact.html" class="text-gray-700 hover:text-primary font-medium">Contact</a>
+        <a href="upload.html" class="text-primary font-medium">Upload</a>
+      </nav>
+      
+      <a href="donate.html" class="bg-primary hover:bg-green-700 text-white px-4 py-2 rounded-md">
+        Donate
+      </a>
+      
+      <button id="mobileMenuButton" class="md:hidden text-gray-700" aria-label="Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" x2="20" y1="12" y2="12"></line>
+          <line x1="4" x2="20" y1="6" y2="6"></line>
+          <line x1="4" x2="20" y1="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="md:hidden hidden bg-white border-t">
+      <div class="container mx-auto px-4 py-2">
+        <nav class="flex flex-col space-y-3 py-3">
+          <a href="index.html" class="text-gray-700 hover:text-primary font-medium">Home</a>
+          <a href="about-us.html" class="text-primary font-medium">About Us</a>
+          <a href="gallery.html" class="text-gray-700 hover:text-primary font-medium">Gallery</a>
+          <a href="contact.html" class="text-gray-700 hover:text-primary font-medium">Contact</a>
+          <a href="upload.html" class="text-primary font-medium">Upload</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Banner -->
+  <div class="relative bg-gray-900 text-white py-16">
+    <div class="absolute inset-0 z-0 opacity-40">
+      
+    </div>
+    <div class="container mx-auto px-4 relative z-10">
+      <h1 class="text-4xl font-bold mb-2">About Us</h1>
+      <p class="text-lg">Learn more about our mission and impact</p>
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <img src="/Pictures/About/donate-now-side-img.png" alt="About FoodShare" class="rounded-lg shadow-lg w-full">
+        </div>
+        <div>
+          <h2 class="text-3xl font-bold mb-6">Our Story</h2>
+          <p class="text-gray-700 mb-6">
+            FoodShare was founded  by a group of passionate individuals who were concerned about the growing food waste and hunger in our communities. What started as a small initiative to collect surplus food from local restaurants has now grown into a comprehensive food rescue and redistribution program.
+          </p>
+          <p class="text-gray-700 mb-6">
+            Our journey began when our founder, Bhupendra Watti, witnessed large amounts of perfectly good food being thrown away at a local restaurant. Determined to make a difference, she approached the restaurant owner with a simple proposal: instead of throwing away the food, donate it to those in need.
+          </p>
+          <p class="text-gray-700">
+            Today, FoodShare works with hundreds of food donors and volunteers to rescue and redistribute food to shelters, community centers, and individuals in need.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">Our Mission</h2>
+        <p class="text-gray-600 max-w-3xl mx-auto">
+          At FoodShare, we believe that no one should go hungry while perfectly good food goes to waste. Our mission is to create a sustainable food system where surplus food is redistributed to those who need it most.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-center mb-2">Reduce Food Waste</h3>
+          <p class="text-gray-600 text-center">
+            We work to reduce food waste by collecting surplus food from restaurants, grocery stores, and events.
+          </p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+              <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+              <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+              <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+              <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-center mb-2">Feed the Hungry</h3>
+          <p class="text-gray-600 text-center">
+            We distribute rescued food to shelters, community centers, and individuals in need.
+          </p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+              <path d="M17 6.1H3"></path>
+              <path d="M21 12.1H3"></path>
+              <path d="M15.1 18H3"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-center mb-2">Raise Awareness</h3>
+          <p class="text-gray-600 text-center">
+            We educate the community about food waste and hunger through workshops and events.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Section -->
+  
+
+  <!-- Team Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">Our Team</h2>
+        <p class="text-gray-600 max-w-3xl mx-auto">
+          Meet the dedicated individuals who make our mission possible.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-white rounded-full shadow-md overflow-hidden">
+          <div class="relative h-64">
+            <img src="/Pictures/Person/bhupendra.jpg" alt="Bhupendra Watti" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="text-xl font-bold">Bhupendra Watti</h3>
+            <p class="text-primary font-semibold ">Founder & CEO</p>
+            
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-full shadow-md overflow-hidden">
+          <div class="relative h-64">
+            <img src="/Pictures/Person/Yuvraj.jpg" alt="Yuvraj Singh Solanki" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="text-xl font-bold">Yuvraj Singh Solanki</h3>
+            <p class="text-primary font-semibold">Operations Director</p>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-full shadow-md overflow-hidden">
+          <div class="relative h-64">
+            <img src="/Pictures/Person/vishal.jpg" alt="Vishal Patidar" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="text-xl font-bold">Vishal Patidar</h3>
+            <p class="text-primary font-semibold">Volunteer Coordinator</p>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-full shadow-md overflow-hidden">
+          <div class="relative h-64">
+            <img src="/Pictures/Person/neeraj.jpg" alt="Neeraj Singhnath" class="w-full h-full  object-cover">
+          </div>
+          <div class="p-4 text-center">
+            <img src="">
+            <h3 class="text-xl font-bold">Neeraj Singhnath</h3>
+            <p class="text-primary font-semibold">Community Outreach</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-16 bg-primary text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-6">Join Our Mission</h2>
+      <p class="text-lg mb-8 max-w-3xl mx-auto">
+        Whether you want to donate food, volunteer your time, or support our cause financially, there are many ways to get involved with FoodShare.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="donate.html" class="bg-white text-primary hover:bg-gray-100 px-6 py-3 rounded-md font-medium">
+          Donate Now
+        </a>
+        <a href="volunteer.html" class="bg-transparent border border-white text-white hover:bg-white hover:text-primary px-6 py-3 rounded-md font-medium">
+          Become a Volunteer
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">FoodShare</h3>
+          <p class="text-gray-300">
+            Helping to reduce food waste and feed those in need.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-gray-300 hover:text-white">Home</a></li>
+            <li><a href="about-us.html" class="text-gray-300 hover:text-white">About Us</a></li>
+            <!-- <li><a href="gallery.html" class="text-gray-300 hover:text-white">Gallery</a></li> -->
+            <li><a href="contact.html" class="text-gray-300 hover:text-white">Contact</a></li>
+            <li><a href="admin-login.html" class="text-gray-300 hover:text-white">Admin</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+          <address class="not-italic text-gray-300">
+            <p>A 7/19, Sector C, Ujjain</p>
+            <p>Ujjain, Madhya Pradesh</p>
+            <p>Email: info@foodshare.org</p>
+            <p>Phone: +91 9875437621</p>
+          </address>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+        <p>&copy; <span id="currentYear"></span> FoodShare. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/public/js/main.js"></script>
+</body>
+</html>
+
