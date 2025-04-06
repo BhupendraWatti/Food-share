@@ -64,7 +64,7 @@ if (donationForm) {
     }
 
     // Get photo as data URL
-    const photoFile = photoInput.files[0];
+    const photoFile = photoInput ? photoInput.files[0] : null;
     let photoDataUrl = null;
 
     const processFormSubmission = () => {
@@ -103,7 +103,17 @@ if (donationForm) {
         
         window.location.href = "thank-you.html"; // Redirect to thank you page
       })
-      .catch(error => console.error('Error:', error));
+      .catch(error => {
+        console.error('Error:', error);
+        Toastify({
+          text: "Donation failed. Please try again.",
+          duration: 3000,
+          gravity: "top",
+          position: "right",
+          backgroundColor: "#e53e3e",
+        }).showToast();
+      });
+      
     };
 
     if (photoFile) {
