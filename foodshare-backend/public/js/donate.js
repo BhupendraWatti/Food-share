@@ -115,15 +115,15 @@ if (donationForm) {
       
     };
 
-    // if (photoFile) {
-    //   const reader = new FileReader();
-    //   reader.onloadend = () => {
-    //     photoDataUrl = reader.result;
-    //     processFormSubmission();
-    //   };
-    //   reader.readAsDataURL(photoFile);
-    // } else {
-    //   processFormSubmission();
-    // }
+    if (photoFile) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        photoDataUrl = reader.result;
+        processFormSubmission();
+      };
+      reader.readAsDataURL(photoFile);
+    } else {
+      processFormSubmission();
+    }
   });
 }
