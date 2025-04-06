@@ -51,24 +51,40 @@ if (donorTypeSelect && customDonorTypeContainer) {
 // }
 
 // Handle form submission
-const donationForm = document.getElementById("donationForm");
-if (donationForm) {
-  donationForm.addEventListener("submit", (e) => {
-    e.preventDefault();
+document.addEventListener("DOMContentLoaded", () => {
+  // Get URL parameter
+  const urlParams = new URLSearchParams(window.location.search);
+  const itemId = urlParams.get("item");
 
-    // Get form data
-    const formData = new FormData(donationForm);
-    let donorType = formData.get("donorType");
-    if (donorType === "other") {
-      donorType = formData.get("customDonorType");
-    }
+  const donationForm = document.getElementById("donationForm");
+  const donorTypeSelect = document.getElementById("donorType");
+  const customDonorTypeContainer = document.getElementById("customDonorTypeContainer");
+  const customDonorTypeInput = document.getElementById("customDonorType");
 
-    // Get photo as data URL
-    // const photoFile = photoInput ? photoInput.files[0] : null;
-    // let photoDataUrl = null;
+  // Show/hide custom donor type
+  if (donorTypeSelect && customDonorTypeContainer && customDonorTypeInput) {
+    donorTypeSelect.addEventListener("change", () => {
+      if (donorTypeSelect.value === "other") {
+        customDonorTypeContainer.classList.remove("hidden");
+        customDonorTypeInput.setAttribute("required", "required");
+      } else {
+        customDonorTypeContainer.classList.add("hidden");
+        customDonorTypeInput.removeAttribute("required");
+      }
+    });
+  }
 
-    const processFormSubmission = () => {
-      // Create donation object
+  // Handle form submit
+  if (donationForm) {
+    donationForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(donationForm);
+      let donorType = formData.get("donorType");
+      if (donorType === "other") {
+        donorType = formData.get("customDonorType");
+      }
+
       const donationData = {
         name: formData.get("name"),
         email: formData.get("email"),
@@ -80,7 +96,6 @@ if (donationForm) {
         timestamp: new Date().toISOString(),
       };
 
-      // Send data to the server
       fetch('http://localhost:3000/donate', {
         method: 'POST',
         headers: {
@@ -93,14 +108,12 @@ if (donationForm) {
         Toastify({
           text: "Donation submitted successfully!",
           duration: 3000,
-          gravity: "top", // 'top' or 'bottom'
-          position: "right", // 'left', 'center', or 'right'
+          gravity: "top",
+          position: "right",
           backgroundColor: "#008080",
-          className: "text-white text-sm font-medium",
-          stopOnFocus: true,
         }).showToast();
-        
-        window.location.href = "thank-you.html"; // Redirect to thank you page
+
+        window.location.href = "thank-you.html";
       })
       .catch(error => {
         console.error('Error:', error);
@@ -112,9 +125,6 @@ if (donationForm) {
           backgroundColor: "#e53e3e",
         }).showToast();
       });
-      
-    };
-    processFormSubmission();
-
-  });
-}
+    });
+  }
+});
