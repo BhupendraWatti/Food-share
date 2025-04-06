@@ -20,35 +20,35 @@ if (donorTypeSelect && customDonorTypeContainer) {
 }
 
 // Handle photo upload
-const photoInput = document.getElementById("photo");
-const chooseFileBtn = document.getElementById("chooseFileBtn");
-const fileNameDisplay = document.getElementById("fileNameDisplay");
-const photoPreviewContainer = document.getElementById("photoPreviewContainer");
-const photoPreview = document.getElementById("photoPreview");
+// const photoInput = document.getElementById("photo");
+// const chooseFileBtn = document.getElementById("chooseFileBtn");
+// const fileNameDisplay = document.getElementById("fileNameDisplay");
+// const photoPreviewContainer = document.getElementById("photoPreviewContainer");
+// const photoPreview = document.getElementById("photoPreview");
 
-if (photoInput && chooseFileBtn && fileNameDisplay) {
-  chooseFileBtn.addEventListener("click", () => {
-    photoInput.click();
-  });
+// if (photoInput && chooseFileBtn && fileNameDisplay) {
+//   chooseFileBtn.addEventListener("click", () => {
+//     photoInput.click();
+//   });
 
-  photoInput.addEventListener("change", (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      fileNameDisplay.textContent = file.name;
+//   photoInput.addEventListener("change", (e) => {
+//     const file = e.target.files[0];
+//     if (file) {
+//       fileNameDisplay.textContent = file.name;
 
-      // Show preview
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        photoPreview.src = e.target.result;
-        photoPreviewContainer.classList.remove("hidden");
-      };
-      reader.readAsDataURL(file);
-    } else {
-      fileNameDisplay.textContent = "No photo selected";
-      photoPreviewContainer.classList.add("hidden");
-    }
-  });
-}
+//       // Show preview
+//       const reader = new FileReader();
+//       reader.onload = (e) => {
+//         photoPreview.src = e.target.result;
+//         photoPreviewContainer.classList.remove("hidden");
+//       };
+//       reader.readAsDataURL(file);
+//     } else {
+//       fileNameDisplay.textContent = "No photo selected";
+//       photoPreviewContainer.classList.add("hidden");
+//     }
+//   });
+// }
 
 // Handle form submission
 const donationForm = document.getElementById("donationForm");
@@ -64,8 +64,8 @@ if (donationForm) {
     }
 
     // Get photo as data URL
-    const photoFile = photoInput ? photoInput.files[0] : null;
-    let photoDataUrl = null;
+    // const photoFile = photoInput ? photoInput.files[0] : null;
+    // let photoDataUrl = null;
 
     const processFormSubmission = () => {
       // Create donation object
@@ -77,7 +77,6 @@ if (donationForm) {
         amount: formData.get("amount"),
         donorType: donorType,
         itemId: itemId,
-        photo: photoDataUrl,
         timestamp: new Date().toISOString(),
       };
 
@@ -116,15 +115,15 @@ if (donationForm) {
       
     };
 
-    if (photoFile) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        photoDataUrl = reader.result;
-        processFormSubmission();
-      };
-      reader.readAsDataURL(photoFile);
-    } else {
-      processFormSubmission();
-    }
+    // if (photoFile) {
+    //   const reader = new FileReader();
+    //   reader.onloadend = () => {
+    //     photoDataUrl = reader.result;
+    //     processFormSubmission();
+    //   };
+    //   reader.readAsDataURL(photoFile);
+    // } else {
+    //   processFormSubmission();
+    // }
   });
 }
